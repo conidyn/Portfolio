@@ -1,30 +1,66 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Smooth anchors (Home/#about etc.) */
 html {
   scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/*
+  Theme tokens (usable from anywhere via CSS if needed).
+  We keep Tailwind utilities as the main source, but these help for consistent accents.
+*/
+:root {
+  --bg: 248 250 252; /* slate-50 */
+  --fg: 15 23 42; /* slate-900 */
+  --muted: 100 116 139; /* slate-500 */
+  --border: 226 232 240; /* slate-200 */
+
+  /* Option B accent (amber/orange) */
+  --accent: 217 119 6; /* amber-600 */
+  --accent-hover: 180 83 9; /* amber-700 */
+  --ring: 251 191 36; /* amber-400 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --bg: 2 6 23; /* slate-950 */
+  --fg: 248 250 252; /* slate-50 */
+  --muted: 148 163 184; /* slate-400 */
+  --border: 30 41 59; /* slate-800 */
+
+  /* Slightly brighter accent in dark */
+  --accent: 245 158 11; /* amber-500 */
+  --accent-hover: 251 191 36; /* amber-400 */
+  --ring: 253 230 138; /* amber-200 */
 }
 
+/* Global page background & text (light/dark) */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+
+  /* nicer text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make default borders consistent (useful for <hr>, etc.) */
+hr {
+  border-color: rgb(var(--border));
+}
+
+/* Default link behavior (kept subtle; components can override) */
+a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+/* Optional: selection color aligned with accent */
+::selection {
+  background: rgb(var(--accent) / 0.25);
+}
+
+/* Better default focus outline (we rely on Tailwind focus:ring in components) */
+:focus-visible {
+  outline: none;
 }
