@@ -5,6 +5,7 @@ import { Section } from "../components/Section";
 import { Accordion } from "../components/Accordion";
 import { Pill } from "../components/Pill";
 import { ContactForm } from "../components/ContactForm";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -13,7 +14,13 @@ export default function HomePage() {
       <section className="py-16 sm:py-20">
         <Container>
           <div className="text-center">
-            <div className="mx-auto h-24 w-24 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900" />
+            <Image
+              src="/images/profile.jpg"
+              alt="Nicolas Doyen"
+              width={150}
+              height={96}
+              className="mx-auto rounded-2xl border border-slate-200 shadow-sm dark:border-slate-800"
+            />
 
             <h1 className="mt-8 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl dark:text-white">
               {site.name}
