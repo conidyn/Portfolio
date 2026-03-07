@@ -1,36 +1,54 @@
-export type Project = {
-  slug: string;
-  title: string;
-  shortDescription: string;
-  tags: string[];
-  githubUrl: string;
-  demoUrl: string; // YouTube link for now
+export type ProjectLink = {
+  label: string;
+  href: string;
 };
 
-export const projects: Project[] = [
+export type ProjectTab = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  links: ProjectLink[];
+  demo?: {
+    kind: "youtube" | "none";
+    href?: string;
+  };
+  badge?: string;
+};
+
+export const projects: ProjectTab[] = [
   {
-    slug: "todolist-3-0",
+    id: "todolist",
+    label: "TodoList 3.0",
     title: "TodoList 3.0",
-    shortDescription:
-      "Production-ready todo app focused on clean architecture, validation, and security best practices.",
-    tags: ["React", "TypeScript", "Node.js", "Express", "MariaDB"],
-    githubUrl: "https://github.com/<your-username>/TodoList-3.0",
-    demoUrl: "https://www.youtube.com/watch?v=<your-video-id>",
+    description:
+      "A production-minded full-stack Todo app built with strong fundamentals: TypeScript, clean structure, validation, and API hygiene.",
+    links: [
+      { label: "GitHub →", href: "https://github.com/" }, // replace later
+      { label: "Demo video →", href: "https://youtube.com/" }, // replace later
+    ],
+    demo: {
+      kind: "youtube",
+      href: "https://www.youtube.com/embed/dQw4w9WgXcQ", // placeholder embed; replace later
+    },
+    badge: "Featured",
   },
   {
-    slug: "coming-soon-1",
-    title: "Coming soon",
-    shortDescription: "Next project in progress.",
-    tags: [],
-    githubUrl: "",
-    demoUrl: "",
+    id: "coming-soon-1",
+    label: "Coming Soon",
+    title: "Coming Soon",
+    description:
+      "More projects will be added here soon. The goal is to keep this portfolio minimal, focused, and easy to review.",
+    links: [],
+    demo: { kind: "none" },
   },
   {
-    slug: "coming-soon-2",
-    title: "Coming soon",
-    shortDescription: "Next project in progress.",
-    tags: [],
-    githubUrl: "",
-    demoUrl: "",
+    id: "coming-soon-2",
+    label: "Coming Soon",
+    title: "Coming Soon",
+    description:
+      "Another project placeholder. This section will remain clean and recruiter-friendly as new work ships.",
+    links: [],
+    demo: { kind: "none" },
   },
 ];

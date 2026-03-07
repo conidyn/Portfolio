@@ -1,0 +1,91 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { cn } from "../lib/cn";
+import type { ProjectTab } from "../data/projects";
+
+type Props = {
+  tabs: ProjectTab[];
+};
+
+export function ProjectTabs({ tabs }: Props) {
+  const [activeId, setActiveId] = useState(tabs[0]?.id ?? "");
+  const active = useMemo(() => tabs.find((t) => t.id === activeId) ?? tabs[0], [tabs, activeId]);
+
+  if (!active) return null;
+
+  return (
+    <div className="mt-10">
+      <div className="border-b border-slate-200">
+        <div className="flex flex-wrap items-center justify-center gap-2 pb-3">
+          {tabs.map((t) => {
+            const isActive = t.id === activeId;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setActiveId(t.id)}
+                className={cn(
+                  "rounded-md px-3 py-2 text-sm font-medium transition",
+                  isActive
+                    ? "bg-slate-900 text-white"
+                    : "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
+                )}
+              >
+                {t.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <div className="text-center">
+          {active.badge ? (
+            <div className="mx-auto inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+              {active.badge}
+            </div>
+          ) : null}
+
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-amber-700 sm:text-4xl">
+            {active.title}
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-slate-600">
+            {active.description}
+          </p>
+
+          {active.links.length ? (
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+              {active.links.map((l) => (
+                <a
+                  key={l.href + l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm font-medium text-amber-700 hover:text-amber-800"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
+        {active.demo?.kind === "youtube" && active.demo.href ? (
+          <div className="mt-10 overflow-hidden rounded-lg border border-slate-200 bg-black shadow-sm">
+            <div className="aspect-video">
+              <iframe
+                className="h-full w-full"
+                src={active.demo.href}
+                title="Project demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}

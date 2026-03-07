@@ -1,19 +1,28 @@
+import { Container } from "../../components/Container";
+import { site } from "../../data/site";
 import { projects } from "../../data/projects";
-import { ProjectCard } from "../../components/ProjectCard";
+import { ProjectTabs } from "../../components/ProjectTabs";
 
 export default function ProjectsPage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10 space-y-6">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold">Projects</h1>
-        <p className="text-gray-600">Selected work with demos and source code.</p>
-      </header>
+    <main className="py-16 sm:py-20">
+      <Container>
+        <div className="text-center">
+          <h1 className="text-4xl font-semibold tracking-tight text-amber-700 sm:text-5xl dark:text-amber-400">
+            {site.projectsPage.title}
+          </h1>
 
-      <section className="grid gap-6">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </section>
+          <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
+            {site.projectsPage.subtitle}
+          </p>
+
+          <p className="mx-auto mt-6 max-w-3xl text-sm italic text-slate-500 dark:text-slate-400">
+            {site.projectsPage.note}
+          </p>
+        </div>
+
+        <ProjectTabs tabs={projects} />
+      </Container>
     </main>
   );
 }
