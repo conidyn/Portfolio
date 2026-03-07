@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { cn } from "../lib/cn";
 import { site } from "../data/site";
 import { Container } from "./Container";
-import { IconMoon } from "./icons";
+import { IconMoon, IconSun } from "./icons";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -31,7 +31,7 @@ export function Navbar() {
     return () => window.clearTimeout(id);
   }, [pathname]);
 
-  const currentTheme = mounted ? (theme ?? resolvedTheme) : "light";
+  const currentTheme = mounted ? resolvedTheme : "light";
   const isDark = currentTheme === "dark";
 
   const linkBase = "rounded-lg px-4 py-1.5 text-sm font-bold transition-all duration-200 border-2 border-transparent";
@@ -94,10 +94,13 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setTheme(isDark ? "light" : "dark")}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md text-white transition-colors hover:text-[#7fa9bc]"
+              className={cn(
+                "inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors",
+                currentTheme === "dark" ? "text-white hover:text-[#7fa9bc]" : "text-slate-900 hover:text-[#7fa9bc]"
+              )}
               aria-label="Toggle theme"
             >
-              <IconMoon className="h-5 w-5" />
+              {isDark ? <IconSun className="h-6 w-6" /> : <IconMoon className="h-6 w-6" />}
             </button>
 
             <button
