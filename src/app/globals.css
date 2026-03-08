@@ -1,14 +1,12 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* Smooth anchors (Home/#about etc.) */
+
 html {
   scroll-behavior: smooth;
 }
 
-/*
-  Theme tokens (usable from anywhere via CSS if needed).
-  We keep Tailwind utilities as the main source, but these help for consistent accents.
-*/
+
 :root {
   --bg: 248 250 252; /* slate-50 */
   --fg: 15 23 42; /* slate-900 */

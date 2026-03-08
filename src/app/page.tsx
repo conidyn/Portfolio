@@ -6,6 +6,7 @@ import { Accordion } from "../components/Accordion";
 import { Pill } from "../components/Pill";
 import { ContactForm } from "../components/ContactForm";
 import Image from "next/image";
+import { SkillsCard } from "../components/SkillsCard";
 
 export default function HomePage() {
   return (
@@ -95,15 +96,14 @@ export default function HomePage() {
             {site.sections.skills.technicalTitle}
           </h3>
 
-          <div className="mt-8 rounded-lg border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
-            {site.sections.skills.technical.map((group, idx) => (
-              <Accordion
-                key={group.title}
-                title={group.title}
-                items={group.items}
-                defaultOpen={idx === 0}
-              />
-            ))}
+          <div className="mt-10 space-y-8">
+            {site.sections.skills.technical.map((group) => (
+            <SkillsCard
+            key={group.title}
+            title={group.title}
+            skills={group.items}
+          />
+        ))} 
           </div>
 
           <h3 className="mt-14 text-center text-2xl font-semibold text-amber-700 dark:text-amber-400">
