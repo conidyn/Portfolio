@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { cn } from "../lib/cn";
 import { site } from "../data/site";
 import { Container } from "./Container";
-import { IconMoon, IconSun } from "./icons";
+import { IconMoon, IconSun } from "./Icons";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -50,7 +50,11 @@ export function Navbar() {
 >
       <Container>
         <nav className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
+          <Link 
+            href={site.brand.href} 
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3">
             <div className="grid h-9 w-9 place-items-center rounded-md border border-white/10 bg-white text-slate-900">
               <span className="text-sm font-semibold">ND</span>
             </div>
