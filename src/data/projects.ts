@@ -24,8 +24,7 @@ export const projects: ProjectTab[] = [
     description:
       "A production-minded full-stack Todo app built with strong fundamentals: TypeScript, clean structure, validation, and API hygiene.",
     links: [
-      { label: "GitHub →", href: "https://github.com/" }, // replace later
-      { label: "Demo video →", href: "https://youtube.com/" }, // replace later
+      { label: "GitHub →", href: "https://github.com/conidyn/TodoList-3.0" },
     ],
     demo: {
       kind: "youtube",
