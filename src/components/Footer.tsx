@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "../data/site";
 import { Container } from "./Container";
-import { IconGithub, IconLinkedIn } from "./icons";
+import { IconGithub, IconLinkedIn } from "./Icons";
 
 function SocialIcon({ label }: { label: string }) {
   if (label.toLowerCase().includes("github")) return <IconGithub className="h-5 w-5" />;
@@ -14,9 +14,14 @@ export function Footer() {
     <footer className="border-t border-slate-200 py-8 dark:border-slate-800">
       <Container className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
+          <Link
+            href={site.footer.leftTopHref}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-semibold text-slate-900 transition hover:underline hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:text-slate-50 dark:hover:text-amber-400"
+          >
             {site.footer.leftTop}
-          </div>
+          </Link>
           <div className="mt-1 text-sm text-slate-500 dark:text-slate-400">
             {site.footer.leftBottom}
           </div>

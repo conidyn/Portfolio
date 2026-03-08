@@ -11,6 +11,9 @@ export type SocialLink = {
 export type SiteData = {
   name: string;
   role: string;
+  brand: {
+    href: string;
+};
 
   nav: {
     primary: NavItem[];
@@ -51,6 +54,7 @@ export type SiteData = {
   footer: {
     leftTop: string;
     leftBottom: string;
+    leftTopHref: string;
     socials: SocialLink[];
   };
 };
@@ -58,6 +62,9 @@ export type SiteData = {
 export const site: SiteData = {
   name: "Nicolas Doyen",
   role: "Full-Stack Developer",
+   brand: {
+    href: "https://www.linkedin.com/in/nicolas-doyen/",
+  },
 
   nav: {
     primary: [
@@ -79,7 +86,7 @@ export const site: SiteData = {
       { label: "Get in touch", href: "/#contact", kind: "soft" },
     ],
     githubLabel: "Discover the code on GitHub →",
-    githubHref: "https://github.com/", // TODO: replace later
+    githubHref: "https://github.com/conidyn", 
   },
 
   sections: {
@@ -98,20 +105,55 @@ export const site: SiteData = {
       technicalTitle: "Technical Skills",
       technical: [
         {
-          title: "Languages & Frameworks",
-          items: ["TypeScript", "React", "Next.js", "Node.js"],
+          title: "Frontend & Design",
+          items: [
+            "JavaScript",
+            "TypeScript",
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            "Chakra UI",
+            "SCSS",
+          ],
         },
         {
-          title: "Cloud & DevOps",
-          items: ["Docker", "CI/CD basics", "Linux / WSL"],
+          title: "Backend & Architecture",
+          items: [
+            "Node.js",
+            "Express",
+            "Django",
+            "FastAPI",
+            "GraphQL",
+            "WebSocket",
+            "Sequelize",
+          ],
         },
         {
-          title: "Databases",
-          items: ["MariaDB / MySQL", "PostgreSQL basics"],
+          title: "AI Integration",
+          items: [
+            "LiteLLM",
+            "OpenRouter",
+            "Prompt Engineering",
+          ],
         },
         {
-          title: "Tools & Operating Systems",
-          items: ["Git / GitHub", "VS Code", "Testing basics (Jest)"],
+          title: "Databases & Data",
+          items: [
+            "MySQL",
+            "MariaDB",
+            "MongoDB",
+          ],
+        },
+        {
+          title: "DevOps & Workflow",
+          items: [
+            "Docker",
+            "Git",
+            "Postman",
+            "Jest",
+            "Vercel",
+            "Linux",
+          ],
         },
       ],
       softTitle: "Soft Skills",
@@ -130,7 +172,7 @@ export const site: SiteData = {
       title: "Get In Touch",
       subtitle:
         "Have a question or want to work together? Send a quick message and I’ll reply as soon as possible.",
-      emailTo: "your@email.com", // TODO: replace later
+      emailTo: "nicolas.doyen@hotmail.be",
     },
   },
 
@@ -142,11 +184,12 @@ export const site: SiteData = {
   },
 
   footer: {
-    leftTop: "Your Name",
+    leftTop: "Nicolas Doyen",
+    leftTopHref: "https://www.linkedin.com/in/nicolas-doyen/",
     leftBottom: "© 2026 — All rights reserved",
     socials: [
-      { label: "GitHub", href: "https://github.com/" }, // TODO: replace later
-      { label: "LinkedIn", href: "https://www.linkedin.com/" }, // TODO: replace later
+      { label: "GitHub", href: "https://github.com/conidyn" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/nicolas-doyen/" },
     ],
   },
 };
