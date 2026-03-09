@@ -61,7 +61,7 @@ export type SiteData = {
 
 export const site: SiteData = {
   name: "Nicolas Doyen",
-  role: "Full-Stack Developer",
+  role: "Fullstack Web Developer | AI & Data Projects",
    brand: {
     href: "https://www.linkedin.com/in/nicolas-doyen/",
   },
@@ -93,12 +93,12 @@ export const site: SiteData = {
     about: {
       title: "About Me",
       text:
-        "I enjoy turning complex problems into simple, reliable solutions. I care about code quality, clean structure, and predictable behavior in production.",
+        "I’m a full-stack developer who enjoys building concrete web projects with modern technologies such as React, TypeScript, Node.js and GraphQL. Curious and innovation-driven, I’m progressively specializing in AI integration to design practical, efficient and accessible solutions.",
     },
     focus: {
       title: "Current Focus",
       text:
-        "Shipping portfolio-grade projects with strong fundamentals: TypeScript, clean architecture, API design, and practical security defaults.",
+        "Currently focused on strengthening my fundamentals through portfolio-grade projects: TypeScript, clean architecture, API design, and production-ready practices.",
     },
     skills: {
       title: "Skills",
@@ -180,7 +180,7 @@ export const site: SiteData = {
     title: "My Projects",
     subtitle: "A showcase of applications and projects I’ve built.",
     note:
-      "Some demos are adapted to run directly in the browser. For the full picture, explore the original repositories on GitHub.",
+      "Each project includes a short demo and a link to the GitHub repository.",
   },
 
   footer: {
