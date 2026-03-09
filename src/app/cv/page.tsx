@@ -16,7 +16,7 @@ export default function CvPage() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="/cv.pdf"
+              href="/cv/nicolas-doyen-cv-2025.pdf"
               download
               className="rounded-md bg-indigo-600 px-6 py-2 text-sm font-medium text-white transition hover:bg-indigo-700 focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
@@ -32,8 +32,7 @@ export default function CvPage() {
           </div>
 
           <p className="mt-6 text-sm text-slate-500 dark:text-slate-400">
-            File expected at{" "}
-            <span className="font-medium text-slate-700 dark:text-slate-200">/public/cv.pdf</span>.
+            Updated 2025 · PDF format
           </p>
         </div>
       </Container>
