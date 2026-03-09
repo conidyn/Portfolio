@@ -2,7 +2,6 @@ import Link from "next/link";
 import { site } from "../data/site";
 import { Container } from "../components/Container";
 import { Section } from "../components/Section";
-import { Accordion } from "../components/Accordion";
 import { Pill } from "../components/Pill";
 import { ContactForm } from "../components/ContactForm";
 import Image from "next/image";

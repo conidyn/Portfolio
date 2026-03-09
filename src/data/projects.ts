@@ -33,20 +33,20 @@ export const projects: ProjectTab[] = [
     badge: "Featured",
   },
   {
-    id: "coming-soon-1",
-    label: "Coming Soon",
-    title: "Coming Soon",
+    id: "ai-project",
+    label: "AI & LLM",
+    title: "AI Integration Projects",
     description:
-      "More projects will be added here soon. The goal is to keep this portfolio minimal, focused, and easy to review.",
+      "A project exploring AI integration, LLM-based workflows, and automation. It focuses on practical applications of modern AI tooling and is currently under active development.",
     links: [],
     demo: { kind: "none" },
   },
   {
-    id: "coming-soon-2",
-    label: "Coming Soon",
-    title: "Coming Soon",
+    id: "next-project",
+    label: "In Development",
+    title: "Next Full-Stack Project",
     description:
-      "Another project placeholder. This section will remain clean and recruiter-friendly as new work ships.",
+      "A new full-stack project currently under development. This section will be updated as the project progresses.",
     links: [],
     demo: { kind: "none" },
   },

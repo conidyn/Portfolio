@@ -18,7 +18,7 @@ function isActive(pathname: string, href: string) {
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -36,18 +36,13 @@ export function Navbar() {
 
   const linkBase = "rounded-lg px-4 py-1.5 text-sm font-bold transition-all duration-200 border-2 border-transparent";
   
-  const linkInactive = "text-white hover:bg-[#7fa9bc] hover:text-slate-900";
+  const linkInactive = "text-slate-900 hover:bg-[#7fa9bc] hover:text-slate-900 dark:text-white";
   
   const linkActive = "bg-[#7fa9bc] text-slate-900 border-[#b85202]";
 
   return (
     <header 
-  className="sticky top-0 z-50 border-b py-3 transition-colors duration-200"
-  style={{
-    backgroundColor: currentTheme === 'dark' ? '#0a1220' : '#f1f5f9',
-    borderColor: currentTheme === 'dark' ? 'rgba(255,255,255,0.1)' : '#e2e8f0'
-  }}
->
+      className="sticky top-0 z-50 border-b py-3 transition-colors duration-200 bg-slate-100 border-slate-200 dark:bg-[#0a1220] dark:border-white/10">
       <Container>
         <nav className="flex items-center justify-between">
           <Link 
@@ -59,7 +54,7 @@ export function Navbar() {
               <span className="text-sm font-semibold">ND</span>
             </div>
             <div className="hidden sm:block leading-tight">
-              <div className={cn("text-sm font-semibold", currentTheme === 'dark' ? "text-white" : "text-slate-900")}>
+              <div className="text-sm font-semibold text-slate-900 dark:text-white">
                 {site.name}
               </div>
               <div className="text-xs text-slate-400">{site.role}</div>
@@ -110,7 +105,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
-              className="inline-flex h-9 items-center justify-center rounded-md border border-white/10 px-3 text-sm font-medium text-white md:hidden"
+              className="inline-flex h-9 items-center justify-center rounded-md border border-slate-300 px-3 text-sm font-medium text-slate-900 dark:border-white/10 dark:text-white md:hidden"
             >
               Menu
             </button>
