@@ -32,7 +32,7 @@ export default function CvPage() {
           </div>
 
           <p className="mt-6 text-sm text-slate-500 dark:text-slate-400">
-            Updated 2025 · PDF format
+            Updated 2026 · PDF format
           </p>
         </div>
       </Container>
