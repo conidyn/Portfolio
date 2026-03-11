@@ -7,13 +7,13 @@ import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
   title: `${site.name} — Portfolio`,
-  description: "Minimal, clean portfolio website.",
+  description: "clean portfolio website.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased">
+      <body className="antialiased bg-[rgb(var(--bg))] text-[rgb(var(--fg))]">
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Navbar />

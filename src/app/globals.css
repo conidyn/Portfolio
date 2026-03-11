@@ -8,6 +8,7 @@ html {
 
 
 :root {
+  color-scheme: light;
   --bg: 248 250 252; /* slate-50 */
   --fg: 15 23 42; /* slate-900 */
   --muted: 100 116 139; /* slate-500 */
@@ -20,6 +21,7 @@ html {
 }
 
 html.dark {
+  color-scheme: dark;
   --bg: 2 6 23; /* slate-950 */
   --fg: 248 250 252; /* slate-50 */
   --muted: 148 163 184; /* slate-400 */
