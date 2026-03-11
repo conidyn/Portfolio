@@ -7,7 +7,7 @@ import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
   title: `${site.name} — Portfolio`,
-  description: "clean portfolio website.",
+  description: "portfolio website.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
