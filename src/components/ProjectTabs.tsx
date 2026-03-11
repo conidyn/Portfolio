@@ -56,6 +56,19 @@ export function ProjectTabs({ tabs }: Props) {
             {active.description}
           </p>
 
+          {active.stack?.length ? (
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+              {active.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          ) : null}
+
           {active.links.length ? (
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               {active.links.map((l) => (
@@ -73,18 +86,28 @@ export function ProjectTabs({ tabs }: Props) {
           ) : null}
         </div>
 
-        {active.demo?.kind === "youtube" && active.demo.href ? (
-          <div className="mt-10 overflow-hidden rounded-lg border border-slate-200 bg-black shadow-sm dark:border-slate-800">
-            <div className="aspect-video">
-              <iframe
-                className="h-full w-full"
-                src={active.demo.href}
-                title="Project demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+        {active.demo?.kind === "video" && active.demo.href ? (
+          <>
+            <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
+              Best viewed in fullscreen or on desktop.
+            </p>
+
+            <div className="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-black shadow-sm dark:border-slate-800">
+              <div className="aspect-video">
+                <video
+                  className="h-full w-full"
+                  src={active.demo.href}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  title="Project demo"
+                  preload="metadata"
+                />
+              </div>
             </div>
-          </div>
+          </>
         ) : null}
       </div>
     </div>

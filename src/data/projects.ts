@@ -9,8 +9,9 @@ export type ProjectTab = {
   title: string;
   description: string;
   links: ProjectLink[];
+  stack?: string[];
   demo?: {
-    kind: "youtube" | "none";
+    kind: "video" | "none";
     href?: string;
   };
   badge?: string;
@@ -23,12 +24,13 @@ export const projects: ProjectTab[] = [
     title: "TodoList 3.0",
     description:
       "A production-minded full-stack Todo app built with strong fundamentals: TypeScript, clean structure, validation, and API hygiene.",
+    stack: ["TypeScript", "React", "Node.js", "Express", "Sequelize", "MariaDB"],
     links: [
       { label: "GitHub →", href: "https://github.com/conidyn/TodoList-3.0" },
     ],
     demo: {
-      kind: "youtube",
-      href: "https://www.youtube.com/embed/dQw4w9WgXcQ", // placeholder embed; replace later
+      kind: "video",
+      href: "/videos/todolist-demo.mp4", 
     },
     badge: "Featured",
   },
