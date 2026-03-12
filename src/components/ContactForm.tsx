@@ -14,29 +14,10 @@ export function ContactForm() {
     register,
     handleSubmit,
     reset,
-    setError,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<ContactFormValues>();
 
-  const submit = useSubmit<ContactFormValues>("mwvrbpoe", {
-    onError(submissionErrors) {
-      const formErrors = submissionErrors.getFormErrors();
-      for (const { code, message } of formErrors) {
-        setError("root.server", {
-          type: code,
-          message,
-        });
-      }
-
-      const fieldErrors = submissionErrors.getAllFieldErrors();
-      for (const [field, fieldErrorList] of fieldErrors) {
-        setError(field as keyof ContactFormValues, {
-          type: "server",
-          message: fieldErrorList.map((e) => e.message).join(", "),
-        });
-      }
-    },
-  });
+  const submit = useSubmit<ContactFormValues>("mwvrbpoe");
 
   if (isSubmitSuccessful) {
     return (
@@ -62,11 +43,7 @@ export function ContactForm() {
 
   return (
     <>
-      <form
-        onSubmit={handleSubmit(submit)}
-        className="space-y-6"
-        noValidate
-      >
+      <form onSubmit={handleSubmit(submit)} className="space-y-6" noValidate>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label
@@ -154,12 +131,6 @@ export function ContactForm() {
             </p>
           )}
         </div>
-
-        {errors.root?.server && (
-          <p className="text-center text-sm text-red-600 dark:text-red-400">
-            {errors.root.server.message}
-          </p>
-        )}
 
         <div className="flex justify-center">
           <button
