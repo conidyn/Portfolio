@@ -146,10 +146,10 @@ export function ContactForm() {
       <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-300">
         Or email me directly at{" "}
         <a
-          href="mailto:Nicolas%20Doyen<nicolas.doyen@hotmail.com>?subject=Portfolio%20contact"
+          href="mailto:Nicolas%20Doyen<nicolas.doyen@hotmail.be>?subject=Portfolio%20contact"
           className="font-medium text-indigo-600 hover:underline dark:text-indigo-400"
         >
-          nicolas.doyen@hotmail.com
+          nicolas.doyen@hotmail.be
         </a>
       </p>
     </>
