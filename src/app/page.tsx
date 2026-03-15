@@ -10,8 +10,7 @@ import { SkillsCard } from "../components/SkillsCard";
 export default function HomePage() {
   return (
     <main>
-      {/* Hero */}
-      <section className="py-16 sm:py-20">
+      <section id="home" className="py-16 sm:py-20">
         <Container>
           <div className="text-center">
             <Image
@@ -74,21 +73,18 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* About */}
       <Section id="about" title={site.sections.about.title}>
         <p className="mx-auto max-w-3xl text-center leading-relaxed text-slate-600 dark:text-slate-300">
           {site.sections.about.text}
         </p>
       </Section>
 
-      {/* Focus */}
       <Section id="focus" title={site.sections.focus.title} className="bg-white/60 dark:bg-slate-950/40">
         <p className="mx-auto max-w-3xl text-center leading-relaxed text-slate-600 dark:text-slate-300">
           {site.sections.focus.text}
         </p>
       </Section>
 
-      {/* Skills */}
       <Section id="skills" title={site.sections.skills.title}>
         <div className="mx-auto max-w-3xl">
           <h3 className="text-center text-2xl font-semibold text-amber-700 dark:text-amber-400">
@@ -117,7 +113,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Contact */}
       <Section id="contact" title={site.sections.contact.title} className="bg-white/60 dark:bg-slate-950/40">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-slate-600 dark:text-slate-300">{site.sections.contact.subtitle}</p>

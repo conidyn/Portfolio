@@ -9,9 +9,9 @@ import { site } from "../data/site";
 import { Container } from "./Container";
 import { IconMoon, IconSun } from "./Icons";
 
-function isActive(pathname: string, href: string) {
-  if (href === "/") return pathname === "/";
-  if (href.startsWith("/#")) return pathname === "/";
+function isPathActive(pathname: string, href: string) {
+  if (href === "/" || href === "/#home") return pathname === "/";
+  if (href.startsWith("/#")) return false;
   return pathname.startsWith(href);
 }
 
@@ -20,6 +20,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [activeHomeSection, setActiveHomeSection] = useState<"home" | "about" | "contact">("home");
 
   useEffect(() => {
     const id = window.setTimeout(() => setMounted(true), 0);
@@ -31,25 +32,91 @@ export function Navbar() {
     return () => window.clearTimeout(id);
   }, [pathname]);
 
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const hero = document.getElementById("home");
+    const about = document.getElementById("about");
+    const focus = document.getElementById("focus");
+    const skills = document.getElementById("skills");
+    const contact = document.getElementById("contact");
+
+    const sections = [hero, about, focus, skills, contact].filter(Boolean) as HTMLElement[];
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        const topVisible = visibleEntries[0];
+        if (!topVisible) return;
+
+        const id = topVisible.target.id;
+
+        if (id === "home") {
+          setActiveHomeSection("home");
+          return;
+        }
+
+        if (id === "contact") {
+          setActiveHomeSection("contact");
+          return;
+        }
+
+        if (id === "about" || id === "focus" || id === "skills") {
+          setActiveHomeSection("about");
+        }
+      },
+      {
+        root: null,
+        threshold: [0.2, 0.35, 0.5, 0.65],
+        rootMargin: "-20% 0px -35% 0px",
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
+    };
+  }, [pathname]);
+
   const currentTheme = mounted ? resolvedTheme : "light";
   const isDark = currentTheme === "dark";
 
-  const linkBase = "rounded-lg px-4 py-1.5 text-sm font-bold transition-all duration-200 border-2 border-transparent";
-  
-  const linkInactive = "text-slate-900 hover:bg-[#7fa9bc] hover:text-slate-900 dark:text-white";
-  
+  const linkBase =
+    "rounded-lg px-4 py-1.5 text-sm font-bold transition-all duration-200 border-2 border-transparent";
+
+  const linkInactive =
+    "text-slate-900 hover:bg-[#7fa9bc] hover:text-slate-900 dark:text-white";
+
   const linkActive = "bg-[#7fa9bc] text-slate-900 border-[#b85202]";
 
+  const isNavItemActive = (href: string) => {
+    if (pathname === "/") {
+      if (href === "/" || href === "/#home") return activeHomeSection === "home";
+      if (href === "/#about") return activeHomeSection === "about";
+      if (href === "/#contact") return activeHomeSection === "contact";
+      return isPathActive(pathname, href);
+    }
+
+    return isPathActive(pathname, href);
+  };
+
   return (
-    <header 
-      className="sticky top-0 z-50 border-b py-3 transition-colors duration-200 bg-slate-100 border-slate-200 dark:bg-[#0a1220] dark:border-white/10">
+    <header className="sticky top-0 z-50 border-b py-3 transition-colors duration-200 bg-slate-100 border-slate-200 dark:bg-[#0a1220] dark:border-white/10">
       <Container>
         <nav className="flex items-center justify-between">
-          <Link 
-            href={site.brand.href} 
+          <Link
+            href={site.brand.href}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3">
+            className="flex items-center gap-3"
+          >
             <div className="grid h-9 w-9 place-items-center rounded-md border border-white/10 bg-white text-slate-900">
               <span className="text-sm font-semibold">ND</span>
             </div>
@@ -63,7 +130,8 @@ export function Navbar() {
 
           <div className="hidden items-center gap-2 md:flex">
             {site.nav.primary.map((item) => {
-              const active = isActive(pathname, item.href);
+              const active = isNavItemActive(item.href);
+
               return (
                 <Link
                   key={item.href}
@@ -78,7 +146,8 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             {site.nav.secondary.map((item) => {
-              const active = isActive(pathname, item.href);
+              const active = isNavItemActive(item.href);
+
               return (
                 <Link
                   key={item.href}
@@ -95,7 +164,9 @@ export function Navbar() {
               onClick={() => setTheme(isDark ? "light" : "dark")}
               className={cn(
                 "inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors",
-                currentTheme === "dark" ? "text-white hover:text-[#7fa9bc]" : "text-slate-900 hover:text-[#7fa9bc]"
+                currentTheme === "dark"
+                  ? "text-white hover:text-[#7fa9bc]"
+                  : "text-slate-900 hover:text-[#7fa9bc]",
               )}
               aria-label="Toggle theme"
             >
@@ -115,7 +186,8 @@ export function Navbar() {
         {mobileOpen && (
           <div className="mt-3 flex flex-wrap items-center justify-center gap-2 md:hidden">
             {[...site.nav.primary, ...site.nav.secondary].map((item) => {
-              const active = isActive(pathname, item.href);
+              const active = isNavItemActive(item.href);
+
               return (
                 <Link
                   key={item.href}
