@@ -21,7 +21,7 @@ export default function CvFrPage() {
               <a
                 href="/cv/Nicolas-Doyen-CV-FR-2026.pdf"
                 download
-                className="rounded-md bg-indigo-600 px-5 py-2 text-sm font-medium text-white transition hover:bg-indigo-700 focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="rounded-md bg-[#7fa9bc] px-5 py-2 text-sm font-medium text-slate-900 transition hover:bg-[#6f99ad] focus-visible:ring-2 focus-visible:ring-[#7fa9bc]"
               >
                 Download
               </a>

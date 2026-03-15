@@ -15,7 +15,7 @@ export default function CvPage() {
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {/* French CV */}
+            
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950">
               <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
                 French CV
@@ -28,7 +28,7 @@ export default function CvPage() {
               <div className="mt-6 flex items-center justify-center gap-3">
                 <Link
                   href="/cv/fr"
-                  className="w-28 rounded-md bg-indigo-600 px-5 py-2 text-center text-sm font-medium text-white transition hover:bg-indigo-700 focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-28 rounded-md bg-[#7fa9bc] px-5 py-2 text-center text-sm font-medium text-slate-900 transition hover:bg-[#6f99ad] focus-visible:ring-2 focus-visible:ring-[#7fa9bc]"
                 >
                   View
                 </Link>
@@ -43,7 +43,6 @@ export default function CvPage() {
               </div>
             </div>
 
-            {/* English Resume */}
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950">
               <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
                 English Resume
@@ -56,7 +55,7 @@ export default function CvPage() {
               <div className="mt-10.5 flex items-center justify-center gap-3">
                 <Link
                   href="/cv/en"
-                  className="w-28 rounded-md bg-indigo-600 px-5 py-2 text-center text-sm font-medium text-white transition hover:bg-indigo-700 focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-28 rounded-md bg-[#7fa9bc] px-5 py-2 text-center text-sm font-medium text-slate-900 transition hover:bg-[#6f99ad] focus-visible:ring-2 focus-visible:ring-[#7fa9bc]"
                 >
                   View
                 </Link>
