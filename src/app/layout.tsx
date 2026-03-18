@@ -6,8 +6,34 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: `${site.name} — Portfolio`,
-  description: "Nicolas Doyen — Full-Stack Developer | React, TypeScript & AI Integration",
+  metadataBase: new URL(site.url),
+  title: {
+    default: site.title,
+    template: `%s | ${site.name}`,
+  },
+  description: site.description,
+  openGraph: {
+    title: site.title,
+    description: site.description,
+    url: site.url,
+    siteName: `${site.name} Portfolio`,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} Portfolio`,
+      },
+    ],
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -17,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Navbar />
-            <div className="flex-1">{children}</div>
+            <main className="flex-1">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
