@@ -1,5 +1,11 @@
 import Link from "next/link";
 import { Container } from "../../components/Container";
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "CV",
+};
 
 export default function CvPage() {
   return (

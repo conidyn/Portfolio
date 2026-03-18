@@ -11,9 +11,12 @@ export type SocialLink = {
 export type SiteData = {
   name: string;
   role: string;
+  url: string;
+  title: string;
+  description: string;
   brand: {
     href: string;
-};
+  };
 
   nav: {
     primary: NavItem[];
@@ -62,6 +65,9 @@ export type SiteData = {
 export const site: SiteData = {
   name: "Nicolas Doyen",
   role: "Fullstack Web Developer | AI & Data Projects",
+  url: "https://nicolas-doyen.vercel.app",
+  title: "Nicolas Doyen — Portfolio",
+  description: "Fullstack Developer | AI & Data",
    brand: {
     href: "https://www.linkedin.com/in/nicolas-doyen/",
   },
