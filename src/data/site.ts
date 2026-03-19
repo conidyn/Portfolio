@@ -105,7 +105,7 @@ export const site: SiteData = {
     focus: {
       title: "Current Focus",
       text:
-        "Currently focused on strengthening my fundamentals through portfolio-grade projects: TypeScript, clean architecture, API design, and production-ready practices.",
+        "Currently focused on strengthening my fundamentals through hands-on projects: TypeScript, structured code, API design, and best practices.",
     },
     skills: {
       title: "Skills",

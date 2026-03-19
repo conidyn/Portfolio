@@ -23,7 +23,7 @@ export const projects: ProjectTab[] = [
     label: "TodoList 3.0",
     title: "TodoList 3.0",
     description:
-      "A production-oriented full-stack Todo application focused on TypeScript, clean architecture, validation, and robust API design.",
+      "A full-stack Todo application built with TypeScript, featuring CRUD operations, input validation, and a structured API.",
     stack: ["TypeScript", "React", "Node.js", "Express", "Sequelize", "MariaDB"],
     links: [
       { label: "GitHub →", href: "https://github.com/conidyn/TodoList-3.0" },

@@ -8,29 +8,30 @@ Personal portfolio built with Next.js to showcase my projects, skills, and ongoi
 
 ## About the project
 
-This portfolio reflects my approach to building clean, production-ready web projects and applications.
+This portfolio reflects my approach to building clean, well-structured web applications with a focus on clarity and maintainability.
 
 It focuses on:
 - clarity and maintainability
 - strong TypeScript fundamentals
-- clean architecture and component structure
+- structured and modular code
 - real-world project presentation
 
-Content-driven architecture: project data and site configuration are centralized in TypeScript files for maintainability and scalability.
+Content-driven architecture: project data and site configuration are centralized in TypeScript files for maintainability and easier iteration.
 
 ---
 
 ## Projects
 
 ### Featured
+
 TodoList 3.0  
-Production-oriented full-stack application built with:
+Full-stack application built with:
 - React + TypeScript
 - Node.js + Express
 - Sequelize + MariaDB  
 
 Focus:
-- clean architecture
+- structured code and separation of concerns
 - API design
 - validation & error handling
 
@@ -42,7 +43,7 @@ AI Integration (LLM)
 Ongoing work exploring LLM integration, prompt engineering, and API-based workflows (OpenRouter, LiteLLM). Focused on building practical use cases and understanding real-world constraints.
 
 Full-Stack Project  
-Currently designing a new full-stack application focused on clean architecture, API design, and production-ready practices. More details will be shared as the project evolves.
+Currently designing a new full-stack application focused on structured backend design, API development, and good development practices. More details will be shared as the project evolves.
 
 ---
 
