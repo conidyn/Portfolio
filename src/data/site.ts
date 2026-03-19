@@ -45,6 +45,7 @@ export type SiteData = {
       title: string;
       subtitle: string;
       emailTo: string; // used by ContactForm (mailto is generated client-side)
+      formspreeId: string;
     };
   };
 
@@ -179,6 +180,7 @@ export const site: SiteData = {
       subtitle:
         "Have a question or want to work together? Send a quick message and I’ll reply as soon as possible.",
       emailTo: "nicolas.doyen@hotmail.be",
+      formspreeId: "mwvrbpoe",
     },
   },
 
