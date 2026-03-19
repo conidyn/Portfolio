@@ -9,58 +9,58 @@ html {
 
 :root {
   color-scheme: light;
-  --bg: 248 250 252; /* slate-50 */
-  --fg: 15 23 42; /* slate-900 */
-  --muted: 100 116 139; /* slate-500 */
-  --border: 226 232 240; /* slate-200 */
+  --bg: 248 250 252;
+  --fg: 15 23 42;
+  --muted: 100 116 139;
+  --border: 226 232 240;
 
-  /* Option B accent (amber/orange) */
-  --accent: 217 119 6; /* amber-600 */
-  --accent-hover: 180 83 9; /* amber-700 */
-  --ring: 251 191 36; /* amber-400 */
+ /* option B */
+  --accent: 217 119 6; 
+  --accent-hover: 180 83 9;
+  --ring: 251 191 36; 
 }
 
 html.dark {
   color-scheme: dark;
-  --bg: 2 6 23; /* slate-950 */
-  --fg: 248 250 252; /* slate-50 */
-  --muted: 148 163 184; /* slate-400 */
-  --border: 30 41 59; /* slate-800 */
+  --bg: 2 6 23; 
+  --fg: 248 250 252;
+  --muted: 148 163 184;
+  --border: 30 41 59;
 
   /* Slightly brighter accent in dark */
-  --accent: 245 158 11; /* amber-500 */
-  --accent-hover: 251 191 36; /* amber-400 */
-  --ring: 253 230 138; /* amber-200 */
+  --accent: 245 158 11; 
+  --accent-hover: 251 191 36; 
+  --ring: 253 230 138; 
 }
 
-/* Global page background & text (light/dark) */
+
 body {
   min-height: 100vh;
   background-color: rgb(var(--bg));
   color: rgb(var(--fg));
 
-  /* nicer text rendering */
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Make default borders consistent (useful for <hr>, etc.) */
+
 hr {
   border-color: rgb(var(--border));
 }
 
-/* Default link behavior (kept subtle; components can override) */
+
 a {
   color: inherit;
   text-underline-offset: 3px;
 }
 
-/* Optional: selection color aligned with accent */
+
 ::selection {
   background: rgb(var(--accent) / 0.25);
 }
 
-/* Better default focus outline (we rely on Tailwind focus:ring in components) */
+
 :focus-visible {
   outline: none;
 }

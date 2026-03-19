@@ -11,7 +11,7 @@ type Props = {
 
 export function Button({ href, children, kind = "soft", className }: Props) {
   const base =
-    "inline-flex items-center justify-center rounded-md px-5 py-2 text-sm font-medium transition-colors " +
+    "inline-flex items-center justify-center rounded-md px-5 py-2 text-sm font-medium transition " +
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--ring))] focus-visible:ring-offset-2 " +
     "focus-visible:ring-offset-[rgb(var(--bg))]";
 

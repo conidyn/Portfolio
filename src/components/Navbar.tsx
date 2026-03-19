@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { useTheme } from "next-themes";
 import { cn } from "../lib/cn";
 import { site } from "../data/site";
@@ -22,6 +22,7 @@ export function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [activeHomeSection, setActiveHomeSection] = useState<"home" | "about" | "contact">("home");
 
+  // Delay rendering until mounted to prevent hydration mismatch (next-themes)
   useEffect(() => {
     const id = window.setTimeout(() => setMounted(true), 0);
     return () => window.clearTimeout(id);
@@ -107,6 +108,23 @@ export function Navbar() {
     return isPathActive(pathname, href);
   };
 
+  const handleInPageNavigation = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (pathname !== "/" || !href.startsWith("/#")) return;
+
+    event.preventDefault();
+
+    const targetId = href.replace("/#", "");
+    const target = document.getElementById(targetId);
+
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", href);
+  };
+
   return (
     <header className="sticky top-0 z-50 border-b py-3 transition-colors duration-200 bg-slate-100 border-slate-200 dark:bg-[#0a1220] dark:border-white/10">
       <Container>
@@ -136,6 +154,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={(event) => handleInPageNavigation(event, item.href)}
                   className={cn(linkBase, active ? linkActive : linkInactive)}
                 >
                   {item.label}
@@ -152,6 +171,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={(event) => handleInPageNavigation(event, item.href)}
                   className={cn("hidden sm:inline-flex", linkBase, active ? linkActive : linkInactive)}
                 >
                   {item.label}
@@ -177,6 +197,8 @@ export function Navbar() {
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
               className="inline-flex h-9 items-center justify-center rounded-md border border-slate-300 px-3 text-sm font-medium text-slate-900 dark:border-white/10 dark:text-white md:hidden"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               Menu
             </button>
@@ -184,7 +206,7 @@ export function Navbar() {
         </nav>
 
         {mobileOpen && (
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-2 md:hidden">
+          <div id="mobile-menu" className="mt-3 flex flex-wrap items-center justify-center gap-2 md:hidden">
             {[...site.nav.primary, ...site.nav.secondary].map((item) => {
               const active = isNavItemActive(item.href);
 
@@ -192,6 +214,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={(event) => handleInPageNavigation(event, item.href)}
                   className={cn(linkBase, active ? linkActive : linkInactive)}
                 >
                   {item.label}
