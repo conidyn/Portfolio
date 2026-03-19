@@ -6,6 +6,7 @@ import { Pill } from "../components/Pill";
 import { ContactForm } from "../components/ContactForm";
 import Image from "next/image";
 import { SkillsCard } from "../components/SkillsCard";
+import { Button } from "../components/Button";
 
 export default function HomePage() {
   return (
@@ -38,18 +39,13 @@ export default function HomePage() {
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               {site.hero.ctas.map((cta) => (
-                <Link
+                <Button
                   key={cta.href + cta.label}
                   href={cta.href}
-                  className={[
-                    "rounded-md px-5 py-2 text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-indigo-500",
-                    cta.kind === "solid"
-                      ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                      : "bg-slate-200/80 text-slate-900 hover:bg-slate-300/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-700",
-                  ].join(" ")}
+                  kind={cta.kind}
                 >
                   {cta.label}
-                </Link>
+                </Button>
               ))}
             </div>
 

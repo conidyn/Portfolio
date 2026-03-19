@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { Container } from "../../../components/Container";
 
+
+export const metadata = {
+  title: "CV (FR) — Nicolas Doyen",
+};
+
 export default function CvFrPage() {
   return (
     <main className="py-10 sm:py-12">
