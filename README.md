@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nicolas Doyen — Portfolio
+
+Personal portfolio built with Next.js to showcase my projects, skills, and ongoing work as a full-stack developer.
+
+→ Live: https://nicolas-doyen.vercel.app/
+
+---
+
+## About the project
+
+This portfolio reflects my approach to building clean, production-ready web projects and applications.
+
+It focuses on:
+- clarity and maintainability
+- strong TypeScript fundamentals
+- clean architecture and component structure
+- real-world project presentation
+
+Content-driven architecture: project data and site configuration are centralized in TypeScript files for maintainability and scalability.
+
+---
+
+## Projects
+
+### Featured
+TodoList 3.0  
+Production-oriented full-stack application built with:
+- React + TypeScript
+- Node.js + Express
+- Sequelize + MariaDB  
+
+Focus:
+- clean architecture
+- API design
+- validation & error handling
+
+---
+
+### In Progress
+
+AI Integration (LLM)  
+Ongoing work exploring LLM integration, prompt engineering, and API-based workflows (OpenRouter, LiteLLM). Focused on building practical use cases and understanding real-world constraints.
+
+Full-Stack Project  
+Currently designing a new full-stack application focused on clean architecture, API design, and production-ready practices. More details will be shared as the project evolves.
+
+---
+
+## Tech Stack
+
+### Frontend
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+### Backend & APIs
+- Node.js
+- Express
+- GraphQL
+- Sequelize
+
+### AI / Tools
+- OpenRouter
+- LiteLLM
+- Prompt Engineering
+
+### Database
+- MariaDB
+- MySQL
+- MongoDB
+
+### DevOps & Tools
+- Docker
+- Git
+- Vercel
+- Linux
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Requirements: Node.js 18.x or later
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    git clone https://github.com/conidyn/portfolio.git
+    cd portfolio
+    npm install
+    npm run dev
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+- /src/app → pages (Next.js App Router)
+- /src/components → reusable UI components
+- /src/data → centralised content (projects, site config)
+- /public → static assets (CV, images, demo video)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Portfolio → https://nicolas-doyen.vercel.app/
+- GitHub → https://github.com/conidyn
+- LinkedIn → https://www.linkedin.com/in/nicolas-doyen/
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This portfolio is actively maintained and updated as I build new projects and improve my skills.
