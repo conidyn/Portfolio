@@ -26,6 +26,7 @@ export type SiteData = {
   hero: {
     headline: string;
     subheadline: string;
+    availability: string;
     ctas: { label: string; href: string; kind: "soft" | "solid" }[];
     githubLabel: string;
     githubHref: string;
@@ -87,6 +88,7 @@ export const site: SiteData = {
     headline: "Building clean, production-ready web apps.",
     subheadline:
       "Full-stack JavaScript developer focused on reliability, clarity, and maintainable architecture.",
+    availability: "Open to opportunities",
     ctas: [
       { label: "View my CV", href: "/cv", kind: "soft" },
       { label: "My projects", href: "/projects", kind: "soft" },

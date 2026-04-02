@@ -204,7 +204,7 @@ export function Navbar() {
             </button>
           </div>
         </nav>
-
+        
         {mobileOpen && (
           <div id="mobile-menu" className="mt-3 flex flex-wrap items-center justify-center gap-2 md:hidden">
             {[...site.nav.primary, ...site.nav.secondary].map((item) => {

@@ -11,8 +11,14 @@ import { Button } from "../components/Button";
 export default function HomePage() {
   return (
     <main>
-      <section id="home" className="py-16 sm:py-20">
+      <section id="home" className="relative py-16 sm:py-20">
         <Container>
+            <div className="mb-6 flex justify-start">
+              <span className="relative -top-15 sm:-top-19 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                <span/>
+                {site.hero.availability}
+              </span>
+            </div>
           <div className="text-center">
             <Image
               src="/images/profile.jpg"
