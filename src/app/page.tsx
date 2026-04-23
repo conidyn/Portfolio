@@ -13,12 +13,12 @@ export default function HomePage() {
     <main>
       <section id="home" className="relative py-16 sm:py-20">
         <Container>
-            <div className="-mb-2 flex justify-start">
-              <span className="relative -top-15 sm:-top-19 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                <span/>
-                {site.hero.availability}
-              </span>
-            </div>
+          <div className="-mb-2 flex justify-start">
+            <span className="relative -top-15 sm:-top-19 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+              <span />
+              {site.hero.availability}
+            </span>
+          </div>
           <div className="text-center">
             <Image
               src="/images/profile.jpg"
@@ -95,12 +95,12 @@ export default function HomePage() {
 
           <div className="mt-10 space-y-8">
             {site.sections.skills.technical.map((group) => (
-            <SkillsCard
-            key={group.title}
-            title={group.title}
-            skills={group.items}
-          />
-        ))} 
+              <SkillsCard
+                key={group.title}
+                title={group.title}
+                skills={group.items}
+              />
+            ))}
           </div>
 
           <h3 className="mt-14 text-center text-2xl font-semibold text-amber-700 dark:text-amber-400">

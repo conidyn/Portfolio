@@ -2,7 +2,15 @@
 
 import { useMemo, useState } from "react";
 import { cn } from "../lib/cn";
+import Image from "next/image";
 import type { ProjectTab } from "../data/projects";
+
+type SelectedImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
 
 type Props = {
   tabs: ProjectTab[];
@@ -10,6 +18,8 @@ type Props = {
 
 export function ProjectTabs({ tabs }: Props) {
   const [activeId, setActiveId] = useState(tabs[0]?.id ?? "");
+  const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(null);
+
   const active = useMemo(() => tabs.find((t) => t.id === activeId) ?? tabs[0], [tabs, activeId]);
 
   if (!active) return null;
@@ -25,7 +35,10 @@ export function ProjectTabs({ tabs }: Props) {
               <button
                 key={t.id}
                 type="button"
-                onClick={() => setActiveId(t.id)}
+                onClick={() => {
+                  setActiveId(t.id);
+                  setSelectedImage(null);
+                }}
                 className={cn(
                   "rounded-md px-3 py-2 text-sm font-medium transition-colors",
                   isActive
@@ -70,7 +83,7 @@ export function ProjectTabs({ tabs }: Props) {
           ) : null}
 
           {active.links.length ? (
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               {active.links.map((l) => (
                 <a
                   key={l.href + l.label}
@@ -86,9 +99,22 @@ export function ProjectTabs({ tabs }: Props) {
           ) : null}
         </div>
 
-        {active.demo?.kind === "video" && active.demo.href ? (
+        {active.demo?.kind === "video" ? (
           <>
-            <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
+                {active.showcase?.intro ? (
+                  <div className="mx-auto mt-10 max-w-3xl text-center">
+                    {active.showcase.intro.title ? (
+                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                        {active.showcase.intro.title}
+                      </h3>
+                    ) : null}
+        
+                    <p className="mt-3 text-slate-600 dark:text-slate-300">
+                      {active.showcase.intro.body}
+                    </p>
+                  </div>
+                ) : null}
+            <p className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
               Best viewed in fullscreen or on desktop.
             </p>
 
@@ -109,7 +135,69 @@ export function ProjectTabs({ tabs }: Props) {
             </div>
           </>
         ) : null}
+
+
+        {active.showcase?.sections?.map((section) => (
+          <div key={section.id} className="mx-auto mt-24 max-w-3xl">
+            <h4 className="text-center text-lg font-semibold text-slate-900 dark:text-white">
+              {section.title}
+            </h4>
+
+            <p className="mt-3 text-center text-slate-600 dark:text-slate-300">
+              {section.body}
+            </p>
+
+            {section.image ? (
+              <button
+                type="button"
+                onClick={() => {
+                  if (!section.image) return;
+                  setSelectedImage(section.image);
+                }}
+                className="mt-8 block w-full overflow-hidden rounded-lg border border-slate-200 shadow-sm transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 dark:border-slate-800 dark:focus:ring-offset-slate-950"
+                aria-label={`Open ${section.title} preview`}
+              >
+                <Image
+                  src={section.image.src}
+                  alt={section.image.alt}
+                  width={section.image.width}
+                  height={section.image.height}
+                  className="h-auto w-full object-cover"
+                />
+              </button>
+            ) : null}
+          </div>
+        ))}
       </div>
+
+      {selectedImage ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-h-full max-w-6xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedImage(null)}
+              className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur transition hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              aria-label="Close image preview"
+            >
+              <span className="text-xl leading-none">&times;</span>
+            </button>
+
+            <Image
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              width={selectedImage.width}
+              height={selectedImage.height}
+              className="max-h-[90vh] w-auto max-w-full rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
