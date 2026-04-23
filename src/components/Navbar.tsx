@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type MouseEvent } from "react";
 import { useTheme } from "next-themes";
@@ -19,6 +20,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [activeHomeSection, setActiveHomeSection] = useState<
     "home" | "about" | "contact"
@@ -117,6 +119,19 @@ export function Navbar() {
     event: MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
+    if (href === "/#home") {
+      event.preventDefault();
+
+      if (pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.history.replaceState(null, "", "/");
+        return;
+      }
+
+      router.push("/");
+      return;
+    }
+
     if (pathname !== "/" || !href.startsWith("/#")) return;
 
     event.preventDefault();
