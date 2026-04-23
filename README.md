@@ -1,4 +1,4 @@
-# Nicolas Doyen — Portfolio
+# Nicolas Doyen - Portfolio
 
 Personal portfolio built with Next.js to showcase my projects, skills, and ongoing work as a full-stack developer.
 
