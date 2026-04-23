@@ -1,11 +1,9 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 html {
   scroll-behavior: smooth;
 }
-
 
 :root {
   color-scheme: light;
@@ -14,52 +12,46 @@ html {
   --muted: 100 116 139;
   --border: 226 232 240;
 
- /* option B */
-  --accent: 217 119 6; 
+  /* option B */
+  --accent: 217 119 6;
   --accent-hover: 180 83 9;
-  --ring: 251 191 36; 
+  --ring: 251 191 36;
 }
 
 html.dark {
   color-scheme: dark;
-  --bg: 2 6 23; 
+  --bg: 2 6 23;
   --fg: 248 250 252;
   --muted: 148 163 184;
   --border: 30 41 59;
 
   /* Slightly brighter accent in dark */
-  --accent: 245 158 11; 
-  --accent-hover: 251 191 36; 
-  --ring: 253 230 138; 
+  --accent: 245 158 11;
+  --accent-hover: 251 191 36;
+  --ring: 253 230 138;
 }
-
 
 body {
   min-height: 100vh;
   background-color: rgb(var(--bg));
   color: rgb(var(--fg));
 
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 hr {
   border-color: rgb(var(--border));
 }
-
 
 a {
   color: inherit;
   text-underline-offset: 3px;
 }
 
-
 ::selection {
   background: rgb(var(--accent) / 0.25);
 }
-
 
 :focus-visible {
   outline: none;

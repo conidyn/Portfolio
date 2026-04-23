@@ -70,7 +70,7 @@ export const site: SiteData = {
   url: "https://nicolas-doyen.vercel.app",
   title: "Nicolas Doyen — Portfolio",
   description: "Fullstack Developer | AI & Data",
-   brand: {
+  brand: {
     href: "https://www.linkedin.com/in/nicolas-doyen/",
   },
 
@@ -95,19 +95,17 @@ export const site: SiteData = {
       { label: "Get in touch", href: "/#contact", kind: "soft" },
     ],
     githubLabel: "Discover the code on GitHub →",
-    githubHref: "https://github.com/conidyn", 
+    githubHref: "https://github.com/conidyn",
   },
 
   sections: {
     about: {
       title: "About Me",
-      text:
-        "I’m a full-stack developer who enjoys building concrete web projects with modern technologies such as React, TypeScript, Node.js and GraphQL. Curious and innovation-driven, I’m progressively specializing in AI integration to design practical, efficient and accessible solutions.",
+      text: "I’m a full-stack developer who enjoys building concrete web projects with modern technologies such as React, TypeScript, Node.js and GraphQL. Curious and innovation-driven, I’m progressively specializing in AI integration to design practical, efficient and accessible solutions.",
     },
     focus: {
       title: "Current Focus",
-      text:
-        "Currently focused on strengthening my fundamentals through hands-on projects: TypeScript, structured code, API design, and best practices.",
+      text: "Currently focused on strengthening my fundamentals through hands-on projects: TypeScript, structured code, API design, and best practices.",
     },
     skills: {
       title: "Skills",
@@ -139,30 +137,15 @@ export const site: SiteData = {
         },
         {
           title: "AI Integration",
-          items: [
-            "LiteLLM",
-            "OpenRouter",
-            "Prompt Engineering",
-          ],
+          items: ["LiteLLM", "OpenRouter", "Prompt Engineering"],
         },
         {
           title: "Databases & Data",
-          items: [
-            "MySQL",
-            "MariaDB",
-            "MongoDB",
-          ],
+          items: ["MySQL", "MariaDB", "MongoDB"],
         },
         {
           title: "DevOps & Workflow",
-          items: [
-            "Docker",
-            "Git",
-            "Postman",
-            "Jest",
-            "Vercel",
-            "Linux",
-          ],
+          items: ["Docker", "Git", "Postman", "Jest", "Vercel", "Linux"],
         },
       ],
       softTitle: "Soft Skills",
@@ -189,8 +172,7 @@ export const site: SiteData = {
   projectsPage: {
     title: "My Projects",
     subtitle: "A showcase of applications and projects I’ve built.",
-    note:
-      "Each project includes a short demo and a link to the GitHub repository.",
+    note: "Each project includes a short demo and a link to the GitHub repository.",
   },
 
   footer: {

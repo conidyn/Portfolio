@@ -50,7 +50,13 @@ const skillMap: Record<string, Skill> = {
   SCSS: { name: "SCSS", icon: siSass, kind: "icon" },
 
   "Node.js": { name: "Node.js", icon: siNodedotjs, kind: "icon" },
-  Express: { name: "Express", short: "EX", bgClassName: "bg-slate-800", textClassName: "text-white", kind: "fallback"},
+  Express: {
+    name: "Express",
+    short: "EX",
+    bgClassName: "bg-slate-800",
+    textClassName: "text-white",
+    kind: "fallback",
+  },
   Django: { name: "Django", icon: siDjango, kind: "icon" },
   FastAPI: { name: "FastAPI", icon: siFastapi, kind: "icon" },
   GraphQL: { name: "GraphQL", icon: siGraphql, kind: "icon" },

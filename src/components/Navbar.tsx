@@ -20,7 +20,9 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [activeHomeSection, setActiveHomeSection] = useState<"home" | "about" | "contact">("home");
+  const [activeHomeSection, setActiveHomeSection] = useState<
+    "home" | "about" | "contact"
+  >("home");
 
   // Delay rendering until mounted to prevent hydration mismatch (next-themes)
   useEffect(() => {
@@ -42,7 +44,9 @@ export function Navbar() {
     const skills = document.getElementById("skills");
     const contact = document.getElementById("contact");
 
-    const sections = [hero, about, focus, skills, contact].filter(Boolean) as HTMLElement[];
+    const sections = [hero, about, focus, skills, contact].filter(
+      Boolean,
+    ) as HTMLElement[];
 
     if (sections.length === 0) return;
 
@@ -99,7 +103,8 @@ export function Navbar() {
 
   const isNavItemActive = (href: string) => {
     if (pathname === "/") {
-      if (href === "/" || href === "/#home") return activeHomeSection === "home";
+      if (href === "/" || href === "/#home")
+        return activeHomeSection === "home";
       if (href === "/#about") return activeHomeSection === "about";
       if (href === "/#contact") return activeHomeSection === "contact";
       return isPathActive(pathname, href);
@@ -172,7 +177,11 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(event) => handleInPageNavigation(event, item.href)}
-                  className={cn("hidden sm:inline-flex", linkBase, active ? linkActive : linkInactive)}
+                  className={cn(
+                    "hidden sm:inline-flex",
+                    linkBase,
+                    active ? linkActive : linkInactive,
+                  )}
                 >
                   {item.label}
                 </Link>
@@ -190,7 +199,11 @@ export function Navbar() {
               )}
               aria-label="Toggle theme"
             >
-              {isDark ? <IconSun className="h-6 w-6" /> : <IconMoon className="h-6 w-6" />}
+              {isDark ? (
+                <IconSun className="h-6 w-6" />
+              ) : (
+                <IconMoon className="h-6 w-6" />
+              )}
             </button>
 
             <button
@@ -204,9 +217,12 @@ export function Navbar() {
             </button>
           </div>
         </nav>
-        
+
         {mobileOpen && (
-          <div id="mobile-menu" className="mt-3 flex flex-wrap items-center justify-center gap-2 md:hidden">
+          <div
+            id="mobile-menu"
+            className="mt-3 flex flex-wrap items-center justify-center gap-2 md:hidden"
+          >
             {[...site.nav.primary, ...site.nav.secondary].map((item) => {
               const active = isNavItemActive(item.href);
 

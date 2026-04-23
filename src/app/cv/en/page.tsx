@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Container } from "../../../components/Container";
 
-
 export const metadata = {
   title: "Resume (EN) — Nicolas Doyen",
 };

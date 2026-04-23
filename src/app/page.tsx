@@ -67,7 +67,11 @@ export default function HomePage() {
             </div>
 
             <div className="mt-12 text-slate-400 dark:text-slate-500">
-              <a href="#about" aria-label="Scroll to content" className="inline-flex">
+              <a
+                href="#about"
+                aria-label="Scroll to content"
+                className="inline-flex"
+              >
                 <span className="text-2xl">⌄</span>
               </a>
             </div>
@@ -81,7 +85,11 @@ export default function HomePage() {
         </p>
       </Section>
 
-      <Section id="focus" title={site.sections.focus.title} className="bg-white/60 dark:bg-slate-950/40">
+      <Section
+        id="focus"
+        title={site.sections.focus.title}
+        className="bg-white/60 dark:bg-slate-950/40"
+      >
         <p className="mx-auto max-w-3xl text-center leading-relaxed text-slate-600 dark:text-slate-300">
           {site.sections.focus.text}
         </p>
@@ -115,9 +123,15 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="contact" title={site.sections.contact.title} className="bg-white/60 dark:bg-slate-950/40">
+      <Section
+        id="contact"
+        title={site.sections.contact.title}
+        className="bg-white/60 dark:bg-slate-950/40"
+      >
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-slate-600 dark:text-slate-300">{site.sections.contact.subtitle}</p>
+          <p className="text-slate-600 dark:text-slate-300">
+            {site.sections.contact.subtitle}
+          </p>
         </div>
 
         <div className="mx-auto mt-10 max-w-2xl rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-950">

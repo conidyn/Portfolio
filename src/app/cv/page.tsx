@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Container } from "../../components/Container";
 import type { Metadata } from "next";
 
-
 export const metadata: Metadata = {
   title: "CV",
 };
@@ -21,7 +20,6 @@ export default function CvPage() {
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-950">
               <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
                 French CV

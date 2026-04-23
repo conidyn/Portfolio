@@ -22,9 +22,7 @@ export type ProjectTab = {
   description: string;
   links: ProjectLink[];
   stack?: string[];
-  demo?:
-    | { kind: "none" }
-    | { kind: "video"; href: string };
+  demo?: { kind: "none" } | { kind: "video"; href: string };
   showcase?: {
     intro?: {
       title?: string;
@@ -65,15 +63,13 @@ export const projects: ProjectTab[] = [
     showcase: {
       intro: {
         title: "Product-focused local AI workflow",
-        body:
-          "This project was designed as a real application, not as a simple AI demo. It helps candidates evaluate how well their resume matches a job offer, providing a structured analysis of strengths and gaps, and enabling contextual follow-up through an interactive AI chat to improve weaker areas.",
+        body: "This project was designed as a real application, not as a simple AI demo. It helps candidates evaluate how well their resume matches a job offer, providing a structured analysis of strengths and gaps, and enabling contextual follow-up through an interactive AI chat to improve weaker areas.",
       },
       sections: [
         {
           id: "analysis",
           title: "Structured analysis designed for readability",
-          body:
-            "The main analysis view highlights the match score, requirement-by-requirement checks, strengths, and gaps in a format that is easy to scan. On the technical side, the backend handles orchestration, validation, and output control, allowing the frontend to stay focused on clarity and a consistent user experience.",
+          body: "The main analysis view highlights the match score, requirement-by-requirement checks, strengths, and gaps in a format that is easy to scan. On the technical side, the backend handles orchestration, validation, and output control, allowing the frontend to stay focused on clarity and a consistent user experience.",
           image: {
             src: "/projects/ia-job-analyzer/analysis.png",
             alt: "IA Job Analyzer analysis view showing the match score, requirement checks, strengths, and gaps.",
@@ -84,8 +80,7 @@ export const projects: ProjectTab[] = [
         {
           id: "chat",
           title: "Contextual follow-up instead of a static result",
-          body:
-            "After the initial analysis, the user can ask follow-up questions based on the resume, the job offer, and the structured result already generated. This turns the analysis into an interactive workflow, allowing candidates to better understand their gaps and receive actionable guidance on how to improve.",
+          body: "After the initial analysis, the user can ask follow-up questions based on the resume, the job offer, and the structured result already generated. This turns the analysis into an interactive workflow, allowing candidates to better understand their gaps and receive actionable guidance on how to improve.",
           image: {
             src: "/projects/ia-job-analyzer/chat.png",
             alt: "IA Job Analyzer chat view showing a contextual follow-up answer based on the previous analysis.",
@@ -103,7 +98,14 @@ export const projects: ProjectTab[] = [
     title: "TodoList 3.0",
     description:
       "A full-stack Todo application built with TypeScript, featuring CRUD operations, input validation, and a structured API.",
-    stack: ["TypeScript", "React", "Node.js", "Express", "Sequelize", "MariaDB"],
+    stack: [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Express",
+      "Sequelize",
+      "MariaDB",
+    ],
     links: [
       { label: "GitHub →", href: "https://github.com/conidyn/TodoList-3.0" },
     ],

@@ -4,8 +4,10 @@ import { Container } from "./Container";
 import { IconGithub, IconLinkedIn } from "./Icons";
 
 function SocialIcon({ label }: { label: string }) {
-  if (label.toLowerCase().includes("github")) return <IconGithub className="h-5 w-5" />;
-  if (label.toLowerCase().includes("linkedin")) return <IconLinkedIn className="h-5 w-5" />;
+  if (label.toLowerCase().includes("github"))
+    return <IconGithub className="h-5 w-5" />;
+  if (label.toLowerCase().includes("linkedin"))
+    return <IconLinkedIn className="h-5 w-5" />;
   return <span className="text-sm font-semibold">{label.slice(0, 1)}</span>;
 }
 

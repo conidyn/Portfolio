@@ -18,9 +18,14 @@ type Props = {
 
 export function ProjectTabs({ tabs }: Props) {
   const [activeId, setActiveId] = useState(tabs[0]?.id ?? "");
-  const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(null);
+  const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(
+    null,
+  );
 
-  const active = useMemo(() => tabs.find((t) => t.id === activeId) ?? tabs[0], [tabs, activeId]);
+  const active = useMemo(
+    () => tabs.find((t) => t.id === activeId) ?? tabs[0],
+    [tabs, activeId],
+  );
 
   if (!active) return null;
 
@@ -101,19 +106,19 @@ export function ProjectTabs({ tabs }: Props) {
 
         {active.demo?.kind === "video" ? (
           <>
-                {active.showcase?.intro ? (
-                  <div className="mx-auto mt-10 max-w-3xl text-center">
-                    {active.showcase.intro.title ? (
-                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
-                        {active.showcase.intro.title}
-                      </h3>
-                    ) : null}
-        
-                    <p className="mt-3 text-slate-600 dark:text-slate-300">
-                      {active.showcase.intro.body}
-                    </p>
-                  </div>
+            {active.showcase?.intro ? (
+              <div className="mx-auto mt-10 max-w-3xl text-center">
+                {active.showcase.intro.title ? (
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                    {active.showcase.intro.title}
+                  </h3>
                 ) : null}
+
+                <p className="mt-3 text-slate-600 dark:text-slate-300">
+                  {active.showcase.intro.body}
+                </p>
+              </div>
+            ) : null}
             <p className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
               Best viewed in fullscreen or on desktop.
             </p>
@@ -135,7 +140,6 @@ export function ProjectTabs({ tabs }: Props) {
             </div>
           </>
         ) : null}
-
 
         {active.showcase?.sections?.map((section) => (
           <div key={section.id} className="mx-auto mt-24 max-w-3xl">

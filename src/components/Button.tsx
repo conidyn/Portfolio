@@ -25,7 +25,10 @@ export function Button({ href, children, kind = "soft", className }: Props) {
     "active:translate-y-[0.5px]";
 
   return (
-    <Link href={href} className={cn(base, kind === "solid" ? solid : soft, className)}>
+    <Link
+      href={href}
+      className={cn(base, kind === "solid" ? solid : soft, className)}
+    >
       {children}
     </Link>
   );

@@ -4,7 +4,6 @@ import { useSubmit } from "@formspree/react";
 import { useForm } from "react-hook-form";
 import { site } from "../data/site";
 
-
 const contactEmail = site.sections.contact.emailTo;
 const contactMailto = `mailto:Nicolas%20Doyen<${contactEmail}>?subject=Portfolio%20contact`;
 const formspreeId = site.sections.contact.formspreeId;

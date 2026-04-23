@@ -4,7 +4,6 @@ import { projects } from "../../data/projects";
 import { ProjectTabs } from "../../components/ProjectTabs";
 import type { Metadata } from "next";
 
-
 export const metadata: Metadata = {
   title: "Projects",
 };
