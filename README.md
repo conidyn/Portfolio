@@ -24,6 +24,25 @@ Content-driven architecture: project data and site configuration are centralized
 
 ### Featured
 
+IA Job Analyzer  
+AI-powered application that analyzes a resume against a job offer, delivers structured and actionable feedback, and allows contextual follow-up through interactive AI chat.
+
+Built with:
+- Next.js + TypeScript
+- Node.js + Express
+- Zod (validation)
+- Multer + pdf-parse (CV processing)
+- Cheerio (job scraping)
+- Ollama (local LLM)
+
+Focus:
+- structured analysis (match score, strengths, gaps, requirements)
+- clean backend architecture (routes → controllers → services)
+- strict validation and controlled AI output
+- contextual follow-up chat to help improve candidate weaknesses
+
+---
+
 TodoList 3.0  
 Full-stack application built with:
 - React + TypeScript
@@ -34,16 +53,6 @@ Focus:
 - structured code and separation of concerns
 - API design
 - validation & error handling
-
----
-
-### In Progress
-
-AI Integration (LLM)  
-Ongoing work exploring LLM integration, prompt engineering, and API-based workflows (OpenRouter, LiteLLM). Focused on building practical use cases and understanding real-world constraints.
-
-Full-Stack Project  
-Currently designing a new full-stack application focused on structured backend design, API development, and good development practices. More details will be shared as the project evolves.
 
 ---
 
