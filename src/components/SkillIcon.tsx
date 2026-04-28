@@ -2,7 +2,6 @@ import {
   siChakraui,
   siDjango,
   siDocker,
-  siExpress,
   siFastapi,
   siGit,
   siGraphql,

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { site } from "../data/site";
 import { Container } from "../components/Container";
 import { Section } from "../components/Section";
