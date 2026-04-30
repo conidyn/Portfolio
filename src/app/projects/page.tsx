@@ -26,8 +26,8 @@ export default function ProjectsPage() {
             <p className="italic">{site.projectsPage.note}</p>
 
             <p>
-              Most projects are available as local or private demos. If you would like a
-              live walkthrough,{" "}
+              Most projects are available as local or private demos. If you
+              would like a live walkthrough,{" "}
               <Link
                 href="/#contact"
                 className="font-medium text-amber-700 underline underline-offset-4 transition-colors hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300"
