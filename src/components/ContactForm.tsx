@@ -165,7 +165,7 @@ export function ContactForm() {
           You can also call me at{" "}
           <a
             href={contactPhoneHref}
-            className="font-medium text-[#6f99ad] hover:underline dark:text-[#7fa9bc]"
+            className="font-medium text-[#6f99ad] hover:underline dark:text-[#7fa9bc] whitespace-nowrap"
           >
             {contactPhoneLabel}
           </a>
