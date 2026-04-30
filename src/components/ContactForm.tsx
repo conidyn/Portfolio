@@ -6,6 +6,8 @@ import { site } from "../data/site";
 
 const contactEmail = site.sections.contact.emailTo;
 const contactMailto = `mailto:Nicolas%20Doyen<${contactEmail}>?subject=Portfolio%20contact`;
+const contactPhoneLabel = site.sections.contact.phoneLabel;
+const contactPhoneHref = site.sections.contact.phoneHref;
 const formspreeId = site.sections.contact.formspreeId;
 
 type ContactFormValues = {
@@ -148,15 +150,27 @@ export function ContactForm() {
         </div>
       </form>
 
-      <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-300">
-        Or email me directly at{" "}
-        <a
-          href={contactMailto}
-          className="font-medium text-[#6f99ad] hover:underline dark:text-[#7fa9bc]"
-        >
-          {contactEmail}
-        </a>
-      </p>
+      <div className="mt-6 space-y-2 text-center text-sm text-slate-600 dark:text-slate-300">
+        <p>
+          Or email me directly at{" "}
+          <a
+            href={contactMailto}
+            className="font-medium text-[#6f99ad] hover:underline dark:text-[#7fa9bc]"
+          >
+            {contactEmail}
+          </a>
+        </p>
+
+        <p>
+          You can also call me at{" "}
+          <a
+            href={contactPhoneHref}
+            className="font-medium text-[#6f99ad] hover:underline dark:text-[#7fa9bc]"
+          >
+            {contactPhoneLabel}
+          </a>
+        </p>
+      </div>
     </>
   );
 }
